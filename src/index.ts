@@ -57,7 +57,7 @@ app.post('/send-invite', async (c) => {
   const { email, code, firstName: userFirstName } = await c.req.json()
 
   const { data, error } = await resend.emails.send({
-    from: 'contact@suvangs.tech',
+    from: 'Fuelemy <contact@suvangs.tech>',
     to: [email],
     subject: `Welcome to Fuelemy ${userFirstName}!`,
     html: `<!DOCTYPE html>
