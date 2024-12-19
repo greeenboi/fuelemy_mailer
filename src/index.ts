@@ -227,6 +227,7 @@ app.post('/send-invite', async (c) => {
 <w:anchorlock/>
 <v:textbox inset="0px,0px,0px,0px">
 <center dir="false" style="color:#ffffff;font-family:Arial, sans-serif;font-size:16px">
+<p><a href="${code}">${code}</a></p>
 <![endif]--><a class="button" href="${code}" target="_blank" style="background-color:#6c69ee;border-bottom:1px solid #6C69EE;border-left:1px solid #6C69EE;border-radius:4px;border-right:1px solid #6C69EE;border-top:1px solid #6C69EE;color:#ffffff;display:inline-block;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;mso-border-alt:none;padding-bottom:5px;padding-top:5px;text-align:center;text-decoration:none;width:auto;word-break:keep-all;"><span style="word-break: break-word; padding-left: 40px; padding-right: 40px; font-size: 16px; display: inline-block; letter-spacing: normal;"><span style="word-break: break-word; line-height: 32px;">Get Started!</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div>
 															</td>
 														</tr>
