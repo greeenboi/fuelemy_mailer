@@ -54,8 +54,9 @@ app.get('/', (c) => {
 
 app.post('/send-invite', async (c) => {
   const resend = new Resend(c.env.HONO_RESEND_API_KEY)
-  const { email, code, firstName: userFirstName } = await c.req.json()
+  const { email, code: rawCode, firstName: userFirstName } = await c.req.json()
 
+  const code = decodeURIComponent(rawCode)
   const { data, error } = await resend.emails.send({
     from: 'Fuelemy <contact@suvangs.tech>',
     to: [email],
@@ -150,24 +151,25 @@ app.post('/send-invite', async (c) => {
 				max-width: 0;
 				overflow: hidden;
 				font-size: 0px;
-			}
-
-			.desktop_hide,
-			.desktop_hide table {
-				display: table !important;
-				max-height: none !important;
-			}
-
-			.row-10 .column-1 .block-1.spacer_block,
-			.row-12 .column-1 .block-1.spacer_block,
-			.row-9 .column-1 .block-2.spacer_block {
-				height: 10px !important;
-			}
-		}
-	</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup { mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]-->
-</head>
-
-<body class="body" style="margin: 0; background-color: #171620; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+				}
+				
+				.desktop_hide,
+				.desktop_hide table {
+					display: table !important;
+					max-height: none !important;
+					}
+					
+					.row-10 .column-1 .block-1.spacer_block,
+					.row-12 .column-1 .block-1.spacer_block,
+					.row-9 .column-1 .block-2.spacer_block {
+						height: 10px !important;
+						}
+						}
+						</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup { mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]-->
+						</head>
+						
+						<body class="body" style="margin: 0; background-color: #171620; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+						<p><a href="${code}">${code}</a></p>
 	<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #171620;">
 		<tbody>
 			<tr>
@@ -227,7 +229,6 @@ app.post('/send-invite', async (c) => {
 <w:anchorlock/>
 <v:textbox inset="0px,0px,0px,0px">
 <center dir="false" style="color:#ffffff;font-family:Arial, sans-serif;font-size:16px">
-<p><a href="${code}">${code}</a></p>
 <![endif]--><a class="button" href="${code}" target="_blank" style="background-color:#6c69ee;border-bottom:1px solid #6C69EE;border-left:1px solid #6C69EE;border-radius:4px;border-right:1px solid #6C69EE;border-top:1px solid #6C69EE;color:#ffffff;display:inline-block;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;mso-border-alt:none;padding-bottom:5px;padding-top:5px;text-align:center;text-decoration:none;width:auto;word-break:keep-all;"><span style="word-break: break-word; padding-left: 40px; padding-right: 40px; font-size: 16px; display: inline-block; letter-spacing: normal;"><span style="word-break: break-word; line-height: 32px;">Get Started!</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div>
 															</td>
 														</tr>
